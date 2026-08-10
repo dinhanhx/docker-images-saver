@@ -9,13 +9,35 @@ CLI that reads a `docker-compose.yml`, then `docker save`s every referenced imag
 
 ## Install
 
+For local development (run from within the project directory):
+
 ```bash
 uv sync
+```
+
+To use the `docker-images-saver` command from any directory, install it as a uv tool:
+
+```bash
+uv tool install /path/to/docker-images-saver
+```
+
+After code changes, reinstall to pick them up:
+
+```bash
+uv tool install --force /path/to/docker-images-saver
+```
+
+Alternatively, run it without installing via `uvx`:
+
+```bash
+uvx --from /path/to/docker-images-saver docker-images-saver <compose_file> <out_dir>
 ```
 
 ## Usage
 
 ```bash
+docker-images-saver <compose_file> <out_dir>
+# or, from within the project directory during development:
 uv run docker-images-saver <compose_file> <out_dir>
 ```
 
